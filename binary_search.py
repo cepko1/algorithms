@@ -1,6 +1,7 @@
 def binary_search(list : list, item):
     """Algorithm of classic realization of binary search
-    input: list of items and item for search"""
+    input: list of items and item for search
+    output: index of item or None if item does not exist"""
 
     low = 0
     high = len(list) - 1
