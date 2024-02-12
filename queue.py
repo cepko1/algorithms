@@ -1,24 +1,29 @@
 from collections import deque
 
+
 def search(name):
-    search_queue = deque()
-    search_queue += graph["you"]
-    searched = []
+    search_queue = deque()  # make emty queue
+    search_queue += graph[name]
+    searched = []  # list of searched elements to avoid double check
     while search_queue:
         person = search_queue.popleft()
-        if not person in searched:
-            if person_is_seller(person):
-                print(person.capitalize() + " is a mango seller!")
-                return True
-            else:
-                search_queue += graph[person]
-                searched.append(person)
+        if person in searched:
+            continue
+        if person_is_seller(person):
+            print(person.capitalize() + " is a mango seller!")
+            return True
+        else:
+            search_queue += graph[person]
+            searched.append(person)
     return False
 
+
 def person_is_seller(name):
+    """Check is name a mango seller"""
     return 'm' in name
 
-graph = {}
+
+graph = dict()
 graph["you"] = ["alice", "bob", "claire"]
 graph["bob"] = ["anuj", "peggy"]
 graph["alice"] = ["peggy"]
