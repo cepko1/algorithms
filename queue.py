@@ -7,7 +7,7 @@ def search(name):
     searched = []  # list of searched elements to avoid double check
     while search_queue:
         person = search_queue.popleft()
-        if person in searched:
+        if person in searched:    # if not person in searched : check is seller and append to searched
             continue
         if person_is_seller(person):
             print(person.capitalize() + " is a mango seller!")
